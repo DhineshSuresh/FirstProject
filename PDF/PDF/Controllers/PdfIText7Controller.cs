@@ -44,6 +44,8 @@ namespace PDF.Controllers
         }
 
 
+
+
         public class MyCanvasRenderer : CanvasRenderer
         {
             protected internal bool full = false;
@@ -134,10 +136,7 @@ namespace PDF.Controllers
             rectangle = new Rectangle(30, 40, 510, 750);
             canvas = new Canvas(pdfCanvas, pdf, rectangle);
 
-            //Link l = new Link("here", PdfAction.CreateURI("www.google.com"));
-
-
-
+           
            
             renderer = new MyCanvasRenderer(canvas);
 
@@ -147,7 +146,7 @@ namespace PDF.Controllers
 
            
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 25; i++)
             {
                 float rx = renderer.GetCurrentArea().GetBBox().GetX();
                 float ry = renderer.GetCurrentArea().GetBBox().GetY();

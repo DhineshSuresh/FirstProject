@@ -1,0 +1,730 @@
+﻿
+@{
+    ViewBag.Title = "GenerateClientPdf";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lowenstein</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    
+    <style>
+
+       
+
+        html, body {
+            margin: 0px;
+        }
+
+        table, td, th {
+            padding: 0px;
+            margin: 0px;
+            line-height: 0px;
+        }
+
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 30px;
+            color: #231f20;
+            background-color: #fff;
+            line-height: 0px;
+            max-width: 595px;
+            margin: 0px auto;
+            padding-top: 50px;
+
+
+
+        }
+
+        table {
+            width: 100%;
+            align: center;
+            margin: 0px;
+        }
+
+        a {
+            color: #231f20;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+            a.fw-500 {
+                font-weight: 400;
+            }
+
+        table.content * {
+            align: left;
+        }
+
+        table.header, table.titlebar {
+            margin-bottom: 15px;
+        }
+
+        table.banner {
+            width: 100%;
+        }
+
+        table.date, table.banner, table.titlesection, table.titlesection {
+            margin-bottom: 10px;
+        }
+
+
+        table.titlebar {
+            background-color: #575757;
+        }
+        table.titlebg{
+            background-color:#efeded;
+        }
+
+            table.titlebar h1 {
+                margin: 0px;
+                color: #fff;
+                font-size: 25.62px;
+                font-weight: 700;
+                line-height: 25.62px;
+            }
+            table.titlebar h3 {
+                margin: 0px;
+                color: #fff;
+                
+            }
+            table.titlebar h4 {
+                margin: 0px;
+                color: #fff;
+                
+            }
+
+        table.header p {
+            color: #575757;
+            font-size: 24.02px;
+            line-height: 11.31px;
+            position:fixed;
+        }
+
+        table.date p {
+            color: #a2a4a7;
+            font-size: 15.37px;
+            line-height: 17.96px;
+            
+        }
+
+        table.titlesection h2 {
+            color: #000000;
+            font-weight: 700;
+            font-size: 22.79px;
+            font-size: 22.46px;
+        }
+
+        table.titlesection p {
+            color: #000000;
+            font-size: 13.35px;
+            font-size: 13.35px;
+        }
+
+        table.titlesection a {
+            color: #ec2028;
+        }
+
+        table.banner img {
+            width: 100%;
+        }
+
+        /*p, strong {
+            margin: 0px;
+            font-size: 10.24px;
+            line-height: 15.36px;
+        }*/
+
+        p {
+            font-size: 10.24px;
+            line-height: 15.36px;
+        }
+   
+    
+
+        strong {
+            font-weight: 700;
+        }
+
+        p {
+            font-weight: 400;
+            width: 100%;
+        }
+
+        h2 {
+            margin: 0px;
+            font-size: 19.19px;
+            line-height: 18.91px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            margin: 0px;
+            font-size: 12.82px;
+            font-weight: 700;
+            line-height: 14.51px;
+        }
+
+        ul li {
+            font-size: 10.67px;
+            line-height: 16px;
+            margin-left: 20px;
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        .contentarea {
+            column-count: 3;
+        }
+
+        * {
+    box-sizing: border-box;
+}
+        div.divHeader {
+      position: fixed;
+      height:100px;
+      top:0;
+      margin-bottom: -20px;
+      width:100%;
+      position:fixed;
+      left:0
+    }
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+.columnlist {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ul.b {list-style-type: disc;color:red}
+
+/*#thead { display: table-header-group; }
+tfoot { display: table-row-group; }
+tr { page-break-inside: avoid; }*/
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+   
+    @*<table border="0" cellpadding="0" cellspacing="0" class="header">
+        <tr>
+            <td align="left">
+                <img style="width:147px;" src="http://lowen.activitystaging.com:81/pdfTemplate/img/logo.png" />
+            </td>
+            <td align="right">
+                <p>Client Alert</p>
+            </td>
+        </tr>
+    </table>*@
+
+    <table border="0" cellpadding="0" cellspacing="0" class="titlebar">
+
+        <tr>
+            <td align="left"><br /><h1 style="padding-left:20px;padding-right:20px;padding-bottom:10px;">Bankruptcy, Financial Reorganization & Creditors' Rights Investment Management</h1></td>
+        </tr>
+
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" class="date">
+        <tr>
+            <td align="left"><p>March 7, 2018</p></td>
+        </tr>
+
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" class="banner">
+        <tr>
+            <td>
+                <img src="http://lowen.activitystaging.com:81/pdfTemplate/img/banner.jpg" alt="banner" style="width:720px;" />
+            </td>
+        </tr>
+
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="0" class="titlesection">
+        <tr>
+            <td width="1%" style="background-color:#ec2028;">
+                <p>&nbsp;</p>
+            </td>
+            <td width="1%">
+                <p>&nbsp;</p>
+            </td>
+            <td width="98%">
+                <h2>
+                    Lessons From Merit Management: The Settlement Payment Defense
+                    Lives … if You Are a “Financial Institution”
+                </h2>
+                <p>By <a href="#">Jeffrey Cohen</a>, <a href="#">Richard Bernstein</a>, <a href="#">Michael A. Brosse</a>, <a href="#">Paul Kizel</a>, <a href="#">Benjamin Kozinn</a>, <a href="#">Jonathan C. Wishnia</a>, and <a href="#">Gabriel L. Olivera</a></p>
+            </td>
+        </tr>
+
+    </table>
+    
+    <table border="0" cellpadding="0" cellspacing="10" width="100%" class="titlebg">
+        <tr>
+
+                <td width="100%" valign="top" height="25">
+                    <p>
+                        <strong>What You Need To Know:</strong>
+                    </p>
+                </td>
+            </tr>
+       
+    </table>
+    <table border="0" cellpadding="0" cellspacing="10" width="100%" class="titlebg">
+     
+        <tr>
+            <td width="3%" valign="top" style="color: red; font-size: 22px;">
+                <strong style="line-height:2px; font-size: 22px;">.</strong>
+            </td>
+            <td width="97%" valign="top" height="35">
+                <p>
+                    In Merit Management, the Supreme Court
+                    squarely addresses and resolves the circuit
+                    court split on whether the “settlement
+                    payment” defense can be implemented to
+                    insulate subsequent transferees in a
+                    constructive fraud case.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="3%" valign="top" style="color: red; font-size: 22px;">
+                <strong style="line-height:2px; font-size: 22px;">.</strong>
+            </td>
+            <td width="97%" valign="top" height="35">
+                <p>
+                    By agreeing with the Seventh Circuit, courts are
+                    now instructed to look at the entire transaction
+                    as a whole and focus on the ultimate
+                    transferee, rather than the existence of an
+                    intervening “financial institution.”
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td width="3%" valign="top" style="color: red; font-size: 22px;">
+                <strong style="line-height:2px; font-size: 22px;">.</strong>
+            </td>
+            <td width="97%" valign="top" height="35">
+                <p>
+                    The “settlement payment” defense, however,
+                    remains a viable defense if the involved party is
+                    considered a “financial institution,” the
+                    definition of which the Supreme Court elected
+                    not to address in the Merit decision.
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="10" width="100%">
+        <tr>
+
+            <td width="100%" valign="top" height="25">
+                <p>
+                    In a much-awaited decision, the Supreme Court finally
+                    resolved the longstanding split among the circuit
+                    courts regarding the applicability of the “settlement
+                    payment defense” under 546(e) of the Bankruptcy Code
+                    (the Settlement Payment Defense). The Merit
+                    Management1 Court’s focus on § 546(e)’s scope should
+                    ease the minds of those who worried the Supreme
+                    Court would limit the Bankruptcy Code’s definition of a
+                    “financial institution.
+                </p>
+            </td>
+        </tr>
+    </table>
+
+
+    <table border="0" cellpadding="0" cellspacing="10" width="100%">
+        <tr>
+
+            <td width="100%" valign="top" height="25">
+               
+                    <h3>
+                        1. THE SETTLEMENT PAYMENT DEFENSE
+                    </h3>
+                <p>
+
+                    The Settlement Payment Defense shields covered
+                    entities from constructive fraudulent conveyance
+                    actions by precluding a trustee from recovering a
+                    “settlement payment” or “transfer” made “by or to (or
+                    for the benefit of)” these entities, including financial
+                    institutions. Many defendant-transferees raise the
+                    Settlement Payment Defense to protect their received
+                    settlement payment
+
+                </p>
+                <p>
+
+                    Prior to the Merit Management decision, circuit courts
+                    had two views on the reach of the Settlement Payment
+                    Defense. One view (the Plurality View), subscribed to by
+                    five circuitcourts, allowed the existence of a financial
+                    institution in the chain of transfers to insulate
+                    subsequent transferees from liability. While the
+                    defendant, typically the transaction’s ultimate
+                    transferee, is not a covered entity, the financial
+                    institution that makes the final payment to said
+                    transferee usually is. Thus, the theory goes that if one
+                    of the component parts to the transaction is a covered
+                    entity, the whole transaction is protected by the
+                    Settlement Payment Defense liability. While the
+                    defendant, typically the transaction’s ultimate
+                    transferee, is not a covered entity, the financial
+                    institution that makes the final payment to said
+                    transferee usually is. Thus, the theory goes that if one
+                    of the component parts to the transaction is a covered
+                    entity, the whole transaction is protected by the
+                    Settlement Payment Defense
+
+                </p>
+                <img src="http://lowen.activitystaging.com:81/pdfTemplate/img/banner.jpg" alt="banner" style="width:520px;" />
+                <p>
+
+                    Et magnis dis parturient montes, nascetur ridiculus
+                    The Seventh Circuit proposed a different view (the
+                    Seventh Circuit View), which looked at the transaction
+                    as a whole and focused on the ultimate transferee.
+                    Namely, the Seventh Circuit held that the Settlement
+                    Payment Defense did not apply when the only covered
+                    entity is the financial institution that served as a mere
+                    conduit for the distribution of payment to the
+                    transferee.
+                    In Merit Management, one side argued in favor of the
+                    Plurality View, and the other asserted that the Seventh
+                    Circuit View applies.
+                    mus. Donec quam felis, ultricies nec, pellentesque eu,
+
+                </p>
+                <h3>
+                    3. BRIEF FACTS IN MERIT MANAGEMENT
+                </h3>
+                <p>
+
+                    The Merit Management case involved a chapter 11
+                    trustee (the Trustee) that identified what it considered
+                    to be a constructive fraudulent transfer from the
+                    Debtor to a transferee (the Transferee). The Trustee
+                    alleged that the Debtor purchased stock from the
+                    Transferee at a price that did not provide fair value.3
+                    Therefore, the Trustee filed suit to recover (“avoid”) the
+                    allegedly dubious pre-petition payments.
+
+                    The Transferee filed a motion on the pleadings,
+                    whereby it argued that the Settlement Payment
+                    Defense barred the Trustee from recovery pursuant to
+                    the Plurality View. Specifically, the Transferee argued
+                    that the Settlement Payment Defense insulated the
+                    relevant transaction from scrutiny, because the final
+                    payment to the Transferee was not made by the
+                    Debtor, but rather “by” a protected intermediary: a
+                    financial institution that served as a conduit for the
+                    transfer of payment. The Trustee countered with the
+                    Seventh Circuit View: the Settlement Payment Defense
+                    cannot be used to insulate transfers that were made
+                    through a financial institution but did not involve said
+                    financial institution as a direct party.
+                    The Supreme Court agreed with the Trustee, but on
+                    broader grounds.
+
+                </p>
+                <h3>
+                    4. THE MERIT MANAGEMENT HOLDING
+                </h3>
+                <p>
+
+                    The Merit Management Court did not did limit the
+                    definition of a “financial institution” in any way. Instead,
+                    it simply held that when considering the Settlement
+                    Payment Defense, courts are to concentrate on the
+                    overarching transaction from initial transferor to end
+                    transferee, and not on the component parts.
+                    Focusing its discussion on this general holding, the
+                    Merit Management Court clarified that using a financial
+                    institution as a mere conduit for the distribution of
+                    funds does not shield a transaction from avoidance
+                    actions. Essentially, courts should “look to the transfer
+                    that the trustee seeks to avoid (i.e., A → D) to
+                    determine whether” the Settlement Payment Defense
+                    insulates said transfer, and should not look to the
+                    “component parts of the overarching transfer (i.e., A →
+                    B → C → D).”4
+                    The Supreme Court did not discuss whether the Debtor
+                    or the Transferee qualified as a “financial institution.”
+                    Thus, despite Merit Management’s holding, defendants
+                    can still avail themselves of the Settlement Payment
+                    Defense if they claim “financial institution” status as
+                    part of their defense.
+
+                </p>
+                <h3>
+                    5. POST-MERIT MANAGEMENT IMPLICATIONS
+                </h3>
+                <p>
+
+                    While the decision will deprive some avoidance
+                    defendants of the ability to use the Settlement
+                    Payment Defense, said defense still applies when the
+                    financial institution asserting the Settlement Payment
+                    Defense is the conduit-bank’s “customer.” The Merit
+                    Management ruling did not limit the Bankruptcy Code’s
+                    definition of a “financial institution.” As previously
+                    stated, the Settlement Payment Defense precludes a
+                    trustee from avoiding a “settlement payment” or
+                    “transfer” made “by or to (or for the benefit of)”
+                    The Bankruptcy Code’s definition of “financial
+                    institutions” includes the “customer” of certain banks
+                    or commercial entities when a bank or commercial
+                    entity acts as an agent or custodian for the customer
+                    in connection with a securities contract.5
+                    Hypothetically speaking, a transferee that is also a
+                    customer of a bank or commercial entity serving as an
+                    intermediary to a transaction could use the Settlement
+                    Payment Defense to insulate itself from an avoidance
+                    action, given that the Bankruptcy Code also defines
+                    said customer as a protected “financial institution.”
+                    At the Merit Management oral argument, Justice
+                    Stephen Breyer suggested that this might be a valid
+                    justification for transferees to continue using the
+                    Settlement Payment Defense.6
+                    However, the Court
+                    chose to not discuss the Bankruptcy Code’s definition
+                    of a “financial institution,” as the Transferee conceded
+                    the aforementioned point in the lower courts. Thus, it
+                    still remains true that a financial institution may avail
+                    itself of the Settlement Payment Defense if it is one of
+                    the transacting parties, as opposed to an intermediary.
+                    Given this development, the main takeaway for
+                    securities market participants is that they must
+                    demand a detailed transfer structure that gives them
+                    “financial institution” status in order to curtail
+                    avoidance liability. Many circuit courts are mindful of
+                    the importance of financial market stability and
+                    certainty, and the detrimental effects that would result
+                    from subjecting all securities transactions to
+                    avoidance actions. By insisting on a transfer structure
+                    whereby transferees fit within the Bankruptcy Code’s
+                    definition of a “financial institution,” market
+                    participants will safeguard their securities transactions
+                    from avoidance risk.
+
+                </p>
+                <h3>
+                    6. CONCLUSION
+                </h3>
+
+                <p>
+
+                    Focusing its attention on Merit Management’s specific
+                    facts, the Supreme Court’s ruling appears to leave in
+                    place protections for certain shareholders receiving
+                    settlement payments under securities contracts. Going
+                    forward, market participants that seek certainty and
+                    finality in their transactions will be wise to ensure that
+                    they qualify for “financial institution” status prior to
+                    entering into a securities transaction.
+                </p>
+              
+            </td>
+      
+        
+      
+    </table>
+
+
+    <table border="0" cellpadding="0" cellspacing="10" width="100%" class="titlebg">
+        <tr>
+
+            <td width="100%" valign="top" height="25">
+                <p>
+                    <strong>Related Areas</strong>
+                </p>
+            </td>
+        </tr>
+
+    </table>
+    <table border="0" cellpadding="0" cellspacing="10" width="100%" class="titlebg">
+
+        <tr>
+            
+            <td>
+                <p>
+                    Bankruptcy, Financial Reorganization & Creditors' Rights
+                </p>
+            </td>
+        </tr>
+        <tr>
+            
+            <td>
+                <p>
+                   Investment Management
+                </p>
+            </td>
+        </tr>
+        <tr>
+            
+            <td>
+                <p>
+                    Private Equity
+                </p>
+            </td>
+        </tr>
+        <tr>
+
+            <td width="100%" valign="top" height="25">
+                <p>
+                    <strong>You may also be interested in</strong>
+                </p>
+            </td>
+        </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="10" width="100%" class="titlebg">
+            
+            <tr>
+                <td width="3%" valign="top" style="color: red; font-size: 22px;">
+                    <strong style="line-height:2px; font-size: 22px;">.</strong>
+                </td>
+                <td width="97%" valign="top" height="35">
+                    <p>
+                        The SEC's 2018 Examination Priorities
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="3%" valign="top" style="color: red; font-size: 22px;">
+                    <strong style="line-height:2px; font-size: 22px;">.</strong>
+                </td>
+                <td width="97%" valign="top" height="35">
+                    <p>
+                        Year-End Developments and Compliance Checklists
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="3%" valign="top" style="color: red; font-size: 22px;">
+                    <strong style="line-height:2px; font-size: 22px;">.</strong>
+                </td>
+                <td width="97%" valign="top" height="35">
+                    <p>
+                        Key Tax Provisions Affecting Hedge Funds, Private Equity Funds And Other Investment Vehicles
+                    </p>
+                </td>
+            </tr>
+        </table>
+    
+   
+    <table border="0" cellpadding="0" cellspacing="10" width="100%">
+        <tr>
+
+            <td width="100%" valign="top" height="25">
+                <p>
+                    <h3>
+                        Contacts
+                    </h3>
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    @{
+
+        int length = 5;
+        int k = 0;
+        int m = 0;
+        string content = "<h3>JEFFREY COHEN</h3><p>Partner</p><p>T : 212.419.5868</p><p><u>Jcohen@lowenstein.com</u></p></td>";
+        string TblStr = "<table border='0' cellpadding='0' cellspacing='10' width='100%'>";
+
+        for (int i = 0; i < length; i++)
+        {
+            if (i % 4 == 0)
+            {
+                TblStr += "<tr>";
+            }
+
+            TblStr += "<td>"+ content + "</td>";
+
+            if (i%4 == 3 || i == length-1)
+            {
+                TblStr += "</tr>";
+            }
+
+
+        }
+
+        TblStr += "</table>";
+
+
+
+    }
+
+
+    @Html.Raw(TblStr)
+
+
+    <table border="0" cellpadding="0" cellspacing="5" class="titlebar">
+
+        <tr>
+            <td align="left"><br /><h3 style="padding-left:20px;padding-right:20px;padding-bottom:10px;">YEO YORK</h3></td>
+            <td align="left"><br /><h3 style="padding-left:20px;padding-right:20px;padding-bottom:10px;">PALO ALTO</h3></td>
+            <td align="left"><br /><h3 style="padding-left:20px;padding-right:20px;padding-bottom:10px;">YEW JERSEY</h3></td>
+            <td align="left"><br /><h3 style="padding-left:20px;padding-right:20px;padding-bottom:10px;">UTAH</h3></td>
+            <td align="left"><br /><h3 style="padding-left:20px;padding-right:20px;padding-bottom:10px;">WASHINTON,D.C</h3></td>
+        </tr>
+        <tr>
+           
+            <td align="center" colspan="5"><br /><h3 style="padding-left:20px;padding-right:20px;padding-bottom:10px;">(C) 2018-2019 Lowenstein Sandler LLP</h3></td>
+            
+        </tr>
+     
+
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="10" width="100%">
+        <tr>
+
+            <td height="55">
+                <p>
+                    This Alert has been prepared by Lowenstein Sandler LLP to provide information on recent legal developments of interest to our readers. It is not intended to provide
+                    legal advice for specific situation or to create an attorney-client relationship.Lowenstein Sandler assumes to responsibility to update the Alert based upon events
+                    subsequent to the date of its publication,such as new legislation,regulations and judicial decisions.You should consult with counsel to determine applicable legal
+                    requirements in a specific fact situation
+                </p>
+            </td>
+        </tr>
+    </table>
+
+   
+   
+</body>
+
+</html>
+

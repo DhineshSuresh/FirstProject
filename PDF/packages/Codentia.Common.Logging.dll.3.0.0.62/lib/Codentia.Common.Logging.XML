@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Codentia.Common.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:Codentia.Common.Logging.BL.LogManager">
+            <summary>
+            Singleton class responsible for managing logging. From specification:
+             <para></para>        
+                * Creates and manages message queue
+                * Exposes methods for logging messages
+                * Exception
+                * Message by elements (e.g. source, etc)
+                * Source can be passed in as an object or a string
+                * Will flush messages out upon disposal
+                * Responsible for log-roll-over and creation of folders if absent
+             <para></para>
+            <seealso cref="T:Codentia.Common.Logging.LogMessage"/>
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.BL.LogManager.CheckConnectionIsValid">
+            <summary>
+            Checks the connection is valid.
+            This is a dummy method - calls to it will throw an exception on the remote end (which is used in the instance property above), if invalid.
+            </summary>
+            <returns>bool - true</returns>
+        </member>
+        <member name="M:Codentia.Common.Logging.BL.LogManager.AddToLog(Codentia.Common.Logging.UrlAccessMessage)">
+            <summary>
+            Add a message to the logging queue
+            </summary>
+            <param name="request">HttpRequest to log</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.BL.LogManager.AddToLog(System.Exception,System.String)">
+            <summary>
+            Add a message to the logging queue
+            </summary>
+            <param name="exception">Exception to be logged</param>
+            <param name="source">Source of the exception</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.BL.LogManager.AddToLog(System.Net.WebException,System.String)">
+            <summary>
+            Add a message to the logging queue
+            </summary>
+            <param name="exception">Exception to be logged</param>
+            <param name="source">Source of the exception</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.BL.LogManager.AddToLog(Codentia.Common.Logging.LogMessageType,System.String,System.String)">
+            <summary>
+            Add a message to the logging queue
+            </summary>
+            <param name="type">Type of message</param>
+            <param name="source">Source of message</param>
+            <param name="message">Content of message</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.BL.LogManager.Flush">
+            <summary>
+            Force all queued messages to be written out immediately
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.BL.LogManager.Dispose">
+            <summary>
+            Stop processing and clean up the object immediately
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.BL.LogManager.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.BL.LogManager.RemotingPort">
+            <summary>
+            Gets the get remoting port.
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.DL.ConsoleLogWriter">
+            <summary>
+            ILogWriter implementation which writes to Console.Out
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.DL.ILogWriter">
+            <summary>
+            This interface defines the required structure for a class which wishes to write data to MIT logs
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ILogWriter.Write(Codentia.Common.Logging.LogMessage)">
+            <summary>
+            Write a single message to the log
+            </summary>
+            <param name="message">Message to be written</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ILogWriter.Write(Codentia.Common.Logging.LogMessage[])">
+            <summary>
+            Write a set of messages to the log
+            </summary>
+            <param name="messages">Messages to be written</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ILogWriter.Open">
+            <summary>
+            Prepare the LogWriter for use
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ILogWriter.Close">
+            <summary>
+            Finish all pending operations and prepare the LogWriter for disposal
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ILogWriter.CleanUp(System.Int32,System.Int32,System.Collections.Generic.Dictionary{Codentia.Common.Logging.LogMessageType,System.DateTime})">
+            <summary>
+            Perform Clean-Up operations
+            </summary>
+            <param name="rollOverSizeKB">Maximum size of data store before roll-over required</param>
+            <param name="rollOverFileLimit">Maximum number of (old) rolled-over stores to be kept</param>
+            <param name="retentionDates">Dictionary LogMessageType/DateTime detailing date from which to keep data by type</param>
+        </member>
+        <member name="P:Codentia.Common.Logging.DL.ILogWriter.LogTarget">
+            <summary>
+            Gets or sets the target parameter for the LogWriter
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ConsoleLogWriter.Write(Codentia.Common.Logging.LogMessage)">
+            <summary>
+            Write a single message
+            </summary>
+            <param name="message">Message to write</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ConsoleLogWriter.Write(Codentia.Common.Logging.LogMessage[])">
+            <summary>
+            Write a set of messages
+            </summary>
+            <param name="messages">Messages to write (array)</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ConsoleLogWriter.Open">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ConsoleLogWriter.Close">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ConsoleLogWriter.CleanUp(System.Int32,System.Int32,System.Collections.Generic.Dictionary{Codentia.Common.Logging.LogMessageType,System.DateTime})">
+            <summary>
+            Not supported
+            </summary>
+            <param name="rollOverSizeKB">The parameter is not used.</param>
+            <param name="rollOverFileLimit">The parameter is not used.</param>
+            <param name="retentionDates">The parameter is not used.</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.ConsoleLogWriter.Dispose">
+            <summary>
+            This is not used
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.DL.ConsoleLogWriter.LogTarget">
+            <summary>
+            Gets or sets the LogTarget (unused)
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.DL.DatabaseLogWriter">
+            <summary>
+            ILogWriter implementation which outputs to database
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.DatabaseLogWriter.Write(Codentia.Common.Logging.LogMessage)">
+            <summary>
+            Write a single message
+            </summary>
+            <param name="message">Message to write</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.DatabaseLogWriter.Write(Codentia.Common.Logging.LogMessage[])">
+            <summary>
+            Write a set of messages
+            </summary>
+            <param name="messages">Messages to write</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.DatabaseLogWriter.Open">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.DatabaseLogWriter.Close">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.DatabaseLogWriter.CleanUp(System.Int32,System.Int32,System.Collections.Generic.Dictionary{Codentia.Common.Logging.LogMessageType,System.DateTime})">
+            <summary>
+            Perform cleanup activities
+            </summary>
+            <param name="rollOverSizeKB">The parameter is not used.</param>
+            <param name="rollOverFileLimit">The parameter is not used.</param>
+            <param name="retentionDates">Dictionary stating the date/time from which to keep data for each LogMessageType</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.DatabaseLogWriter.Dispose">
+            <summary>
+            Not supported
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.DL.DatabaseLogWriter.LogTarget">
+            <summary>
+            Gets or sets log Target
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.DL.EmailLogWriter">
+            <summary>
+            ILogWriter implementation which outputs to email messages
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.EmailLogWriter.Write(Codentia.Common.Logging.LogMessage)">
+            <summary>
+            Write a single message
+            </summary>
+            <param name="message">Message to write</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.EmailLogWriter.Write(Codentia.Common.Logging.LogMessage[])">
+            <summary>
+            Write a set of messages
+            </summary>
+            <param name="messages">Array of messages to write</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.EmailLogWriter.Open">
+            <summary>
+            Open Smtp connection / initialise smtp client
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.EmailLogWriter.Close">
+            <summary>
+            Close down
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.EmailLogWriter.CleanUp(System.Int32,System.Int32,System.Collections.Generic.Dictionary{Codentia.Common.Logging.LogMessageType,System.DateTime})">
+            <summary>
+            Not supported
+            </summary>
+            <param name="rollOverSizeKB">The parameter is not used.</param>
+            <param name="rollOverFileLimit">The parameter is not used.</param>
+            <param name="retentionDates">The parameter is not used.</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.EmailLogWriter.Dispose">
+            <summary>
+            This is not used
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.DL.EmailLogWriter.LogTarget">
+            <summary>
+            Gets or sets the LogTarget (email address)
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.DL.FileLogWriter">
+            <summary>
+            FileLogWriter implements ILogWriter and provides a file-based data store for logging.
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.FileLogWriter.Write(Codentia.Common.Logging.LogMessage)">
+            <summary>
+            Write a given message to the log.
+            </summary>
+            <param name="message">Message to be written</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.FileLogWriter.Write(Codentia.Common.Logging.LogMessage[])">
+            <summary>
+            Write a set of messages to the log, one after the other (in incremental order)
+            </summary>
+            <param name="messages">Array of messages to be written, in order</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.FileLogWriter.Open">
+            <summary>
+            Open this LogWriter
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.FileLogWriter.Close">
+            <summary>
+            Close this LogWriter
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.FileLogWriter.CleanUp(System.Int32,System.Int32,System.Collections.Generic.Dictionary{Codentia.Common.Logging.LogMessageType,System.DateTime})">
+            <summary>
+            Perform clean-up of files. Roll over when maximum size is exceeded, delete when number of roll-overs is exceeded.
+            </summary>
+            <param name="rollOverSizeKB">File size at which to consider roll-over</param>
+            <param name="rollOverFileLimit">Number of roll-over files to be kept (newest first)</param>
+            <param name="retentionDates">This is not used</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.DL.FileLogWriter.Dispose">
+            <summary>
+            Dispose this LogWriter
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.DL.FileLogWriter.LogTarget">
+            <summary>
+            Gets or sets the LogTarget (file path + name) 
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.LogMessage">
+            <summary>
+            Data Structure to encapsulate a message which has been queued for logging
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.LogMessage.#ctor(Codentia.Common.Logging.LogMessageType,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Codentia.Common.Logging.LogMessage"/> class.
+            </summary>
+            <param name="type">The type of message</param>
+            <param name="source">The source of message</param>
+            <param name="message">The content of message.</param>
+        </member>
+        <member name="P:Codentia.Common.Logging.LogMessage.Type">
+            <summary>
+            Gets the Type of the message
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.LogMessage.Source">
+            <summary>
+            Gets the Source of the message
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.LogMessage.Message">
+            <summary>
+            Gets the Message of the message
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.LogMessage.Timestamp">
+            <summary>
+            Gets the Timestamp of the message
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.LogMessageType">
+            <summary>
+            Types of Message which can be logged.
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogMessageType.Information">
+            <summary>
+            Lowest level message - informational
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogMessageType.NonFatalError">
+            <summary>
+            Warning level - an error or exception requiring attention but which is not fatal to normal operations
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogMessageType.FatalError">
+            <summary>
+            Highest level message - a critical or system-breaking error
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogMessageType.UrlRequest">
+            <summary>
+            Information message denoting a request hit
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.LogTarget">
+            <summary>
+            Targets available for logging system
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogTarget.Database">
+            <summary>
+            Log to SQL Database
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogTarget.File">
+            <summary>
+            Log to file on disk
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogTarget.Email">
+            <summary>
+            Send a copy of the message by email
+            </summary>
+        </member>
+        <member name="F:Codentia.Common.Logging.LogTarget.Console">
+            <summary>
+            Log to Console.Out (primarily for Unit Test usage)
+            </summary>
+        </member>
+        <member name="T:Codentia.Common.Logging.UrlAccessMessage">
+            <summary>
+            Data Structure to encapsulate a url access message which has been queued for logging
+            </summary>
+        </member>
+        <member name="M:Codentia.Common.Logging.UrlAccessMessage.#ctor(System.Web.HttpRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Codentia.Common.Logging.UrlAccessMessage"/> class.
+            </summary>
+            <param name="request">Request object to be logged</param>
+        </member>
+        <member name="M:Codentia.Common.Logging.UrlAccessMessage.ProcessLanguageArray(System.String[])">
+            <summary>
+            Process Language Array
+            </summary>
+            <param name="languages">language array</param>
+            <returns>string of array</returns>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.Message">
+            <summary>
+            Gets the Message of the message
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.Languages">
+            <summary>
+            Gets the set of languages supported by the request
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.HostAddress">
+            <summary>
+            Gets the IP Address of the request
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.Url">
+            <summary>
+            Gets the Url requested
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.ReferreralUrl">
+            <summary>
+            Gets the referring Url (if any)
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.Browser">
+            <summary>
+             Gets the browser name
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.BrowserMajorVersion">
+            <summary>
+            Gets the browser major version
+            </summary>
+        </member>
+        <member name="P:Codentia.Common.Logging.UrlAccessMessage.BrowserMinorVersion">
+            <summary>
+            Gets the browser minor version
+            </summary>
+        </member>
+    </members>
+</doc>

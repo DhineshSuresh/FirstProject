@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AspNet.Security.OAuth.LinkedIn</name>
+    </assembly>
+    <members>
+        <member name="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationConstants">
+            <summary>
+            Contains constants specific to the <see cref="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHandler"/>.
+            </summary>
+        </member>
+        <member name="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults">
+            <summary>
+            Default values used by the LinkedIn authentication middleware.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults.AuthenticationScheme">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.AuthenticationOptions.AuthenticationScheme"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults.DisplayName">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.RemoteAuthenticationOptions.DisplayName"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults.Issuer">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.AuthenticationOptions.ClaimsIssuer"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults.CallbackPath">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.RemoteAuthenticationOptions.CallbackPath"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults.AuthorizationEndpoint">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.OAuthOptions.AuthorizationEndpoint"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults.TokenEndpoint">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.OAuthOptions.TokenEndpoint"/>.
+            </summary>
+        </member>
+        <member name="F:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationDefaults.UserInformationEndpoint">
+            <summary>
+            Default value for <see cref="P:Microsoft.AspNetCore.Builder.OAuthOptions.UserInformationEndpoint"/>.
+            Note: the endpoint must follow the LinkedIn convention and contain a '~' to append fields to, if they are specified.
+            See https://developer.linkedin.com/docs/signin-with-linkedin for more information.
+            </summary>
+        </member>
+        <member name="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper">
+            <summary>
+            Contains static methods that allow to extract user's information from a <see cref="T:Newtonsoft.Json.Linq.JObject"/>
+            instance retrieved from LinkedIn after a successful authentication process.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetEmail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the email address corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetIdentifier(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the identifier corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetGivenName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the first name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetFamilyName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the last name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetMaidenName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the maiden name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetPhoneticFirstName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the phonetic first name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetPhoneticLastName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the phonetic last name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetPhoneticName(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the phonetic name corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetProfilePictureUrl(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the profile picture URL corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetPictureUrls(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the URL of the member's original unformatted profile picture.
+            This image is usually larger than the picture-url value above.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetPublicProfileUrl(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the public profile URL corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetIndustry(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the industry corresponding to the authenticated user.
+            See https://developer.linkedin.com/docs/reference/industry-codes for more information.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetSummary(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the summary corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetHeadline(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the headline corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetSpecialties(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the specialties corresponding to the authenticated user.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetLocation(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the location object corresponding to the authenticated user.
+            See https://developer.linkedin.com/docs/fields/location for more information.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetCurrentShare(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the most recent item the member has shared on LinkedIn.
+            If the member has not shared anything, their 'status' is returned instead.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetPositions(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the positions object corresponding to the authenticated user.
+            See https://developer.linkedin.com/docs/fields/positions for more information.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetNumConnections(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets the number of LinkedIn connections the member has, capped at 500.
+            See 'num-connections-capped' to determine if the value returned has been capped.
+            </summary>
+        </member>
+        <member name="M:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHelper.GetNumConnectionsCapped(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets a boolean indicating whether the member's 'num-connections' value
+            has been capped at 500 or represents the user's true value.
+            </summary>
+        </member>
+        <member name="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationOptions">
+            <summary>
+            Defines a set of options used by <see cref="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationHandler"/>.
+            </summary>
+        </member>
+        <member name="P:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationOptions.Fields">
+            <summary>
+            Gets the list of fields to retrieve from the user information endpoint.
+            See https://developer.linkedin.com/docs/fields/basic-profile for more information.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Builder.LinkedInAuthenticationExtensions">
+            <summary>
+            Extension methods to add LinkedIn authentication capabilities to an HTTP application pipeline.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Builder.LinkedInAuthenticationExtensions.UseLinkedInAuthentication(Microsoft.AspNetCore.Builder.IApplicationBuilder,AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationOptions)">
+            <summary>
+            Adds the <see cref="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationMiddleware"/> middleware to the specified
+            <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>, which enables LinkedIn authentication capabilities.
+            </summary>
+            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to add the middleware to.</param>
+            <param name="options">A <see cref="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationOptions"/> that specifies options for the middleware.</param>
+            <returns>A reference to this instance after the operation has completed.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Builder.LinkedInAuthenticationExtensions.UseLinkedInAuthentication(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationOptions})">
+            <summary>
+            Adds the <see cref="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationMiddleware"/> middleware to the specified
+            <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>, which enables LinkedIn authentication capabilities.
+            </summary>
+            <param name="app">The <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/> to add the middleware to.</param>
+            <param name="configuration">An action delegate to configure the provided <see cref="T:AspNet.Security.OAuth.LinkedIn.LinkedInAuthenticationOptions"/>.</param>
+            <returns>A reference to this instance after the operation has completed.</returns>
+        </member>
+    </members>
+</doc>
